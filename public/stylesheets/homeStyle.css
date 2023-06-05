@@ -1,0 +1,22 @@
+body{
+    background-image: url('https://ordinaryfaith.net/wp-content/uploads/2016/03/Gray-plain-website-background.jpg');
+}
+
+#carouselExampleInterval{
+    border-radius: 50px !important;
+    
+}
+
+.info{
+    margin: 10px;
+}
+.navbar-brand{
+    font-family: 'Combo', cursive;
+    font-weight: 200;
+    font-size: 50px;
+}
+
+#ro{
+    background-color:azure;
+
+}

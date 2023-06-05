@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://plus.unsplash.com/premium_photo-1666432045848-3fdbb2c74531?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/homeStyle.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">WANDERLUST</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><%=user.name%></h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/hosted/<%= user.id %>">Hosted events</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/join">Joined events</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" style="color: red;" href="#">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <h1 style ="align-items: center;">JOINED EVENTS</h1>
+        <% for(let event of events){ %>
+          <div class="card" style="margin: 30px;">
+            <div class="card-header row">
+              <div class="col">
+                <span>Title : <%=event.title%></span>
+              </div>
+              <div class="col">
+                <span>Hosted by: <%=event.username%> </span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <span class="info">Start Date: <%=event.startDate%></span>
+                </div>
+                <div class="col">
+                  <span class="info">End Date: <%=event.endDate%></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="info">Start point: <%=event.startPoint%></span>
+                </div>
+                <div class="col">
+                  <span class="info">Destination:<%=event.destination%></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="info">Mode of Transport:</span>
+                </div>
+                <div class="col-4">
+                  <span class="info">People registered:</span>
+                </div>
+                <div class="col-2">
+                  <a href="/<%= event._id %> " class="btn btn-secondary">View</a>
+    
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+    
+      </div>
+    
+    
+</body>
+</html>
